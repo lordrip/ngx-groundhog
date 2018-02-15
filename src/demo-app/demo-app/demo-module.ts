@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {DemoGroundhogModule} from '../demo-groundhog-module';
 import {ButtonDemo} from '../button/button-demo';
+import {CheckboxDemo} from '../checkbox/checkbox-demo';
 import {IconDemo} from '../icon/icon-demo';
 import {InputDemo} from 'input/input-demo';
 import {IslandDemo} from 'island/island-demo';
@@ -26,6 +27,7 @@ import {LoadingDistractorDemo} from 'loading-distractor/loading-distractor-demo'
   ],
   declarations: [
     ButtonDemo,
+    CheckboxDemo,
     IconDemo,
     InputDemo,
     IslandDemo,

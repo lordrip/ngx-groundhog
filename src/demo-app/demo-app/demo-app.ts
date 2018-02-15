@@ -41,6 +41,7 @@ export class DemoApp {
   navItems = [
     {name: 'Start', route: '/'},
     {name: 'Button', route: '/button'},
+    {name: 'Checkbox', route: '/checkbox'},
     {name: 'Icon', route: '/icon'},
     {name: 'Input', route: '/input'},
     {name: 'Island', route: '/island'},
