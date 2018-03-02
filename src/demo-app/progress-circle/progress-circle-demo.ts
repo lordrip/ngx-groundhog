@@ -13,6 +13,7 @@ export class ProgressCircleDemo {
   progress = 150;
   min = 100;
   max = 200;
+  color = 'main';
 
   constructor(iconRegistry: GhIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry

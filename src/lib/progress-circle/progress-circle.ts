@@ -4,17 +4,26 @@ import {
   ChangeDetectionStrategy,
   Input,
   OnInit,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  ElementRef
 } from '@angular/core';
+import { mixinColor, CanColor } from '@dynatrace/ngx-groundhog/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
 const CIRCLE_CIRCUMFERENCE = 1514;
+
+// Boilerplate for applying mixins to GhButton.
+export class GhProgressCircleBase {
+  constructor(public _elementRef: ElementRef) {}
+}
+export const _GhProgressCircleMixinBase = mixinColor(GhProgressCircleBase, 'main');
 
 @Component({
   selector: 'gh-progress-circle',
   templateUrl: 'progress-circle.html',
   styleUrls: ['progress-circle.css'],
   exportAs: 'ghProgressCircle',
+  inputs: ['color'],
   host: {
     'role': 'progressbar',
     '[attr.aria-valuemin]': 'min',
@@ -26,7 +35,7 @@ const CIRCLE_CIRCUMFERENCE = 1514;
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GhProgressCircle {
+export class GhProgressCircle extends _GhProgressCircleMixinBase implements CanColor {
 
   /** Value of the progress circle. */
   @Input()
@@ -81,7 +90,10 @@ export class GhProgressCircle {
   private _min: number = 0;
   private _max: number = 100;
 
-  constructor (private _changeDetectorRef: ChangeDetectorRef) { }
+  constructor (elementRef: ElementRef,
+    private _changeDetectorRef: ChangeDetectorRef) {
+      super(elementRef);
+    }
 
   /** Updates all view parameters */
   private _calculateViewParams() {
