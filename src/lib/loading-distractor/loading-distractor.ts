@@ -1,4 +1,16 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+  ElementRef,
+  Input
+} from '@angular/core';
+
+/** Possible spinner sizes */
+export type GhSpinnerSizes = 'default' | 'small';
+
+/** Base name for size css class */
+const SPINNER_SIZE_BASE_CLASS = 'gh-loading-spinner-size';
 
 @Component({
   moduleId: module.id,
@@ -13,7 +25,31 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GhLoadingSpinner { }
+export class GhLoadingSpinner {
+  private _size: GhSpinnerSizes = 'default';
+
+  /** The spinner size */
+  @Input()
+  get size(): GhSpinnerSizes { return this._size; }
+  set size(value: GhSpinnerSizes) {
+    this._replaceCssClass(value, this._size);
+    this._size = value;
+  }
+
+  constructor (private _elementRef: ElementRef) {
+    // Trigger size class setting once
+    this.size = this.size;
+  }
+
+  private _replaceCssClass(newClass?: string, oldClass?: string) {
+    if (oldClass) {
+      this._elementRef.nativeElement.classList.remove(`${SPINNER_SIZE_BASE_CLASS}-${oldClass}`);
+    }
+    if (newClass) {
+      this._elementRef.nativeElement.classList.add(`${SPINNER_SIZE_BASE_CLASS}-${newClass}`);
+    }
+  }
+}
 
 @Component({
   moduleId: module.id,

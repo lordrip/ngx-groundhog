@@ -1,6 +1,7 @@
 @import '../core/style/variables';
 
 $gh-loading-spinner-default-size: 30px;
+$gh-loading-spinner-small-size: 15px;
 $gh-loading-spinner-offset: 22px*3.1416; //r(-gap)*2*3.14
 $gh-loading-spinner-duration: 1.7s;
 $gh-loading-spinner-ease: cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -9,6 +10,11 @@ $gh-loading-spinner-ease: cubic-bezier(0.645, 0.045, 0.355, 1);
   display: inline-block;
   width: $gh-loading-spinner-default-size;
   height: $gh-loading-spinner-default-size;
+
+  &.gh-loading-spinner-size-small {
+    width: $gh-loading-spinner-small-size;
+    height: $gh-loading-spinner-small-size;
+  }
 }
 
 .gh-loading-spinner-svg {
@@ -21,6 +27,10 @@ $gh-loading-spinner-ease: cubic-bezier(0.645, 0.045, 0.355, 1);
   fill: none;
   -webkit-animation: spin $gh-loading-spinner-duration * 2 linear infinite;
           animation: spin $gh-loading-spinner-duration * 2 linear infinite;
+
+  .gh-loading-spinner-size-small & {
+    stroke: $gray-500;
+  }
 }
 
 .gh-loading-spinner-path {
