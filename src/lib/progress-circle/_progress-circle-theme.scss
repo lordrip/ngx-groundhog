@@ -1,10 +1,30 @@
 @import '../core/theming/theming';
 
 @mixin gh-progress-circle-theme($theme) {
-  $palette: map-get($theme, 'main');
-  $default-color: gh-color($palette, 'default');
+  $main-palette: map-get($theme, 'main');
+  $accent-palette: map-get($theme, 'accent');
+  $warning-palette: map-get($theme, 'warning');
+  $error-palette: map-get($theme, 'error');
+  $cta-palette: map-get($theme, 'cta');
 
-  .gh-progress-circle-progress {
-    stroke: $default-color;
+  .gh-progress-circle-progress,
+  .gh-main .gh-progress-circle-progress {
+    stroke: gh-color($main-palette, 'default');
+  }
+
+  .gh-accent .gh-progress-circle-progress {
+    stroke: gh-color($accent-palette, 'default');
+  }
+
+  .gh-warning .gh-progress-circle-progress {
+    stroke: gh-color($warning-palette, 'default');
+  }
+
+  .gh-error .gh-progress-circle-progress {
+    stroke: gh-color($error-palette, 'default');
+  }
+
+  .gh-cta .gh-progress-circle-progress {
+    stroke: gh-color($cta-palette, 'default');
   }
 }

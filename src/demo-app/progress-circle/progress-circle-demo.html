@@ -1,23 +1,37 @@
 <h1>Progresscircle</h1>
-<gh-progress-circle [value]="progress" [min]="min" [max]="max" #progresscircle>
+<gh-progress-circle [value]="progress" [min]="min" [max]="max" [color]="color" #progresscircle>
   <gh-icon svgIcon="ai" size="big"></gh-icon>
 </gh-progress-circle>
-<div>Set value: <strong>{{progress}}</strong></div>
+<div class="pc-spacer">Set value: <strong>{{progress}}</strong></div>
 <div>Calculated value: <strong>{{progresscircle.value}}</strong></div>
 <div>Calculated min/max: <strong>{{progresscircle.min}}/{{progresscircle.max}}</strong></div>
 <div>Percentage: <strong>{{progresscircle.percent}}%</strong></div>
 <div>Dash offset: <strong>{{progresscircle._dashOffset}}</strong></div>
-<div>
+<div class="pc-spacer">
   <button gh-button (click)="progress = 0" [disabled]="progress <= 0">0</button>
   <button gh-button (click)="progress = progress - 25" [disabled]="progress <= progresscircle.min">Decrease</button>
   <button gh-button (click)="progress = progress + 25" [disabled]="progress >= progresscircle.max">Increase</button>
   <button gh-button (click)="progress = 100" [disabled]="progress >= 100">100</button>
-  <div>
-    <label for="min">Min</label>
-    <input id="min" type="number" [(ngModel)]="min" />
-  </div>
-  <div>
-    <label for="max">Max</label>
-    <input id="max" type="number" [(ngModel)]="max" />
-  </div>
+</div>
+<div class="pc-spacer">
+  <gh-form-field>
+    <gh-label>Min:</gh-label>
+    <input ghInput required type="number" [(ngModel)]="min">
+    <gh-hint>The minimum value the progress-circle can have (default: 100)</gh-hint>
+  </gh-form-field>
+  <gh-form-field>
+    <gh-label>Max:</gh-label>
+    <input ghInput required type="number" [(ngModel)]="max">
+    <gh-hint>The maximum value the progress-circle can have (default: 100)</gh-hint>
+  </gh-form-field>
+</div>
+<div class="pc-spacer">
+  <strong>Color</strong>
+  <gh-radio-group [(ngModel)]="color" name="color">
+    <gh-radio-button value="main">Main</gh-radio-button>
+    <gh-radio-button value="accent">Accent</gh-radio-button>
+    <gh-radio-button value="warning">Warning</gh-radio-button>
+    <gh-radio-button value="error">Error</gh-radio-button>
+    <gh-radio-button value="cta">CTA</gh-radio-button>
+  </gh-radio-group>
 </div>
