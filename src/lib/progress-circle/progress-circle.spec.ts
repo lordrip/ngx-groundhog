@@ -12,7 +12,8 @@ describe('GhProgressCircle', () => {
       imports: [GhProgressCircleModule],
       declarations: [
         BasicProgressCircle,
-        ValueProgressCircle
+        ValueProgressCircle,
+        ColorProgressCircle
       ]
     });
   }));
@@ -99,6 +100,40 @@ describe('GhProgressCircle', () => {
     expect(progressElement.nativeElement.getAttribute('aria-valuemax')).toBe('200');
     expect(progressElement.nativeElement.getAttribute('aria-valuenow')).toBe('150');
   });
+
+  it('should augment an existing class with a color property', () => {
+    const fixture = TestBed.createComponent(ColorProgressCircle);
+    fixture.detectChanges();
+
+    const progressElement = fixture.debugElement.query(By.css('gh-progress-circle'));
+    const instance = progressElement.componentInstance;
+
+    expect(instance.color)
+      .toBe('main', 'Expected the mixed-into class to have a color property');
+
+    instance.color = 'accent';
+
+    expect(instance.color)
+        .toBe('accent', 'Expected the mixed-into class to have an updated color property');
+  });
+
+  it('should remove old color classes if new color is set', () => {
+    const fixture = TestBed.createComponent(ColorProgressCircle);
+    fixture.detectChanges();
+
+    const progressElement = fixture.debugElement.query(By.css('gh-progress-circle'));
+    const instance = progressElement.componentInstance;
+
+    expect(progressElement.nativeElement.classList)
+      .toContain('gh-main', 'Expected the element to have the "gh-main" class set');
+
+    instance.color = 'accent';
+
+    expect(progressElement.nativeElement.classList).not.toContain('gh-main',
+      'Expected the element to no longer have "gh-main" set.');
+    expect(progressElement.nativeElement.classList).toContain('gh-accent',
+      'Expected the element to have the "gh-accent" class set');
+  });
 });
 
 @Component({template: '<gh-progress-circle></gh-progress-circle>'})
@@ -111,4 +146,9 @@ class ValueProgressCircle {
   value = 150;
   min = 100;
   max = 200;
+}
+
+@Component({template: '<gh-progress-circle [color]="color"></gh-progress-circle>'})
+class ColorProgressCircle {
+  color = 'main';
 }
