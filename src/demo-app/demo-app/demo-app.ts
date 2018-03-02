@@ -50,4 +50,13 @@ export class DemoApp {
     {name: 'Tile', route: '/tile'},
     {name: 'ContextMenu', route: '/context-menu'},
   ];
+
+  currentTheme: string = 'turquoise';
+
+  themes = [
+    { key: 'turquoise', label: 'Turquoise (default)'  },
+    { key: 'blue', label: 'Blue'  },
+    { key: 'purple', label: 'Purple'  },
+    { key: 'royalblue', label: 'Royalblue'  },
+  ];
 }

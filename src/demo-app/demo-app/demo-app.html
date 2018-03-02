@@ -9,8 +9,14 @@
       </a>
     </li>
   </ul>
+  <gh-form-field class="theme-selector">
+    <gh-label>Select a theme:</gh-label>
+    <gh-select [(ngModel)]="currentTheme">
+        <gh-option *ngFor="let theme of themes" [value]="theme.key">{{theme.label}}</gh-option>
+    </gh-select>
+  </gh-form-field>
 </nav>
 
-<div class="demo-content">
+<div class="demo-content" [ghTheme]="currentTheme">
   <router-outlet></router-outlet>
 </div>
