@@ -14,6 +14,7 @@ import {ProgressCircleDemo} from '../progress-circle/progress-circle-demo';
 import {TileDemo} from 'tile/tile-demo';
 import {ContextMenuDemo} from '../context-menu/context-menu-demo';
 import {RadioDemo} from 'radio/radio-demo';
+import {LoadingDistractorDemo} from 'loading-distractor/loading-distractor-demo';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import {RadioDemo} from 'radio/radio-demo';
     IconDemo,
     InputDemo,
     IslandDemo,
+    LoadingDistractorDemo,
     ProgressCircleDemo,
     RadioDemo,
     SelectDemo,

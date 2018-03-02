@@ -44,6 +44,7 @@ export class DemoApp {
     {name: 'Icon', route: '/icon'},
     {name: 'Input', route: '/input'},
     {name: 'Island', route: '/island'},
+    {name: 'Loading Distractor', route: '/loading-distractor'},
     {name: 'Progress circle', route: '/progress-circle'},
     {name: 'Radio', route: '/radio'},
     {name: 'Select', route: '/select'},

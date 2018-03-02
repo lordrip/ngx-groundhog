@@ -9,6 +9,7 @@ import {IslandDemo} from '../island/island-demo';
 import {TileDemo} from '../tile/tile-demo';
 import {ContextMenuDemo} from '../context-menu/context-menu-demo';
 import {RadioDemo} from '../radio/radio-demo';
+import {LoadingDistractorDemo} from 'loading-distractor/loading-distractor-demo';
 
 export const DEMO_APP_ROUTES: Routes = [
   {path: '', component: DemoApp, children: [
@@ -17,6 +18,7 @@ export const DEMO_APP_ROUTES: Routes = [
     {path: 'icon', component: IconDemo},
     {path: 'input', component: InputDemo},
     {path: 'island', component: IslandDemo},
+    {path: 'loading-distractor', component: LoadingDistractorDemo},
     {path: 'progress-circle', component: ProgressCircleDemo},
     {path: 'radio', component: RadioDemo},
     {path: 'select', component: SelectDemo},

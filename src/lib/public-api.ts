@@ -4,6 +4,7 @@ export * from '@dynatrace/ngx-groundhog/form-field';
 export * from '@dynatrace/ngx-groundhog/icon';
 export * from '@dynatrace/ngx-groundhog/input';
 export * from '@dynatrace/ngx-groundhog/island';
+export * from '@dynatrace/ngx-groundhog/loading-distractor';
 export * from '@dynatrace/ngx-groundhog/progress-circle';
 export * from '@dynatrace/ngx-groundhog/radio';
 export * from '@dynatrace/ngx-groundhog/select';

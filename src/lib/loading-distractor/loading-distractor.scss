@@ -1,0 +1,89 @@
+@import '../core/style/variables';
+
+$gh-loading-spinner-default-size: 30px;
+$gh-loading-spinner-offset: 22px*3.1416; //r(-gap)*2*3.14
+$gh-loading-spinner-duration: 1.7s;
+$gh-loading-spinner-ease: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+.gh-loading-spinner {
+  display: inline-block;
+  width: $gh-loading-spinner-default-size;
+  height: $gh-loading-spinner-default-size;
+}
+
+.gh-loading-spinner-svg {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  stroke-width: 4px;
+  stroke: $logolime;
+  fill: none;
+  -webkit-animation: spin $gh-loading-spinner-duration * 2 linear infinite;
+          animation: spin $gh-loading-spinner-duration * 2 linear infinite;
+}
+
+.gh-loading-spinner-path {
+  stroke-dasharray: $gh-loading-spinner-offset;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: dash $gh-loading-spinner-duration $gh-loading-spinner-ease infinite;
+          animation: dash $gh-loading-spinner-duration $gh-loading-spinner-ease infinite;
+}
+
+.gh-loading-distractor {
+  background-color: rgba(25, 25, 25, 0.65);
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 28px;
+  border-radius: 3px;
+}
+
+.gh-loading-distractor-label {
+  display: block;
+  font-family: $mainfont;
+  font-size: 18px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: $logolime;
+  padding-left: 8px;
+}
+
+.gh-loading-spinner .gh-loading-distractor-label {
+  padding-left: 8px;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes dash {
+  0% { stroke-dashoffset: 138.2304px; }
+  50% { stroke-dashoffset: 86.394px; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes dash {
+  0% { stroke-dashoffset: 138.2304px; }
+  50% { stroke-dashoffset: 86.394px; }
+  100% { stroke-dashoffset: 0; }
+}
