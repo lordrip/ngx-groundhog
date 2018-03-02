@@ -12,6 +12,8 @@ export type GhSpinnerSizes = 'default' | 'small';
 /** Base name for size css class */
 const SPINNER_SIZE_BASE_CLASS = 'gh-loading-spinner-size';
 
+let nextUniqueId = 0;
+
 @Component({
   moduleId: module.id,
   selector: 'gh-loading-spinner',
@@ -20,6 +22,9 @@ const SPINNER_SIZE_BASE_CLASS = 'gh-loading-spinner-size';
   styleUrls: ['loading-distractor.css'],
   host: {
     'class': 'gh-loading-spinner',
+    'role': 'alertdialog',
+    'aria-busy': 'true',
+    'aria-live': 'assertive'
   },
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
@@ -35,6 +40,9 @@ export class GhLoadingSpinner {
     this._replaceCssClass(value, this._size);
     this._size = value;
   }
+
+  @Input('aria-labelledby') ariaLabelledby: string;
+  @Input('aria-label') ariaLabel: string;
 
   constructor (private _elementRef: ElementRef) {
     // Trigger size class setting once
@@ -63,4 +71,6 @@ export class GhLoadingSpinner {
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GhLoadingDistractor { }
+export class GhLoadingDistractor {
+  _labelId: string = `"gh-loading-distractor-label-${nextUniqueId++}`;
+}
