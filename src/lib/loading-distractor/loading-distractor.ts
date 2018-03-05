@@ -24,7 +24,9 @@ let nextUniqueId = 0;
     'class': 'gh-loading-spinner',
     'role': 'alertdialog',
     'aria-busy': 'true',
-    'aria-live': 'assertive'
+    'aria-live': 'assertive',
+    '[attr.aria-label]': 'ariaLabel',
+    '[attr.aria-labelledby]': 'ariaLabelledby',
   },
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
