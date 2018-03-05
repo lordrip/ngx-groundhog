@@ -88,10 +88,10 @@ Including a theme is **required** to apply all of the core and theme styles to y
 ngx-groundhog is shipping with multiple themes. Include the one that you are using in your global `styles.css`.
 
 ```
-@import "~@dynatrace/ngx-groundhob/themes/turquoise.css";
+@import "~@dynatrace/ngx-groundhog/themes/turquoise.css";
 ```
 
-If you want to use more themes in your app, import `~@dynatrace/ngx-groundhob/themes/all.css` instead-
+If you want to use more themes in your app, import `~@dynatrace/ngx-groundhog/themes/all.css` instead-
 
 ## Development
 
