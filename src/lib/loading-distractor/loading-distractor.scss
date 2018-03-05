@@ -3,7 +3,7 @@
 $gh-loading-spinner-default-size: 30px;
 $gh-loading-spinner-small-size: 15px;
 $gh-loading-spinner-offset: 22px*3.1416; //r(-gap)*2*3.14
-$gh-loading-spinner-duration: 1.7s;
+$gh-loading-spinner-duration: 1700ms;
 $gh-loading-spinner-ease: cubic-bezier(0.645, 0.045, 0.355, 1);
 
 .gh-loading-spinner {
