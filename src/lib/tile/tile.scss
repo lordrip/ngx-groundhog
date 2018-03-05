@@ -65,6 +65,16 @@
     width: 36px;
     height: 36px;
   }
+
+  .gh-icon {
+    width: 32px;
+    height: 32px;
+
+    .gh-tile-small & {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 .gh-tile-disabled .gh-tile-icon {

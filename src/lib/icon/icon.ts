@@ -11,9 +11,9 @@ import {
 import {take} from 'rxjs/operators/take';
 import {GhIconRegistry} from './icon-registry';
 
-export type GhIconSize = 'small' | 'medium' | 'big';
-const sizes: GhIconSize[] = ['small', 'medium', 'big'];
-const defaultIconSize = 'medium';
+export type GhIconSize = 'xs' | 's' | 'm' | 'l' | 'xl';
+const sizes: GhIconSize[] = ['xs', 's', 'm', 'l', 'xl'];
+const defaultIconSize = 's';
 
 @Component({
   moduleId: module.id,

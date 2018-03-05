@@ -69,7 +69,7 @@ describe('GhIcon', () => {
     const ghIconElement = fixture.debugElement.nativeElement.querySelector('gh-icon');
     testComponent.iconName = 'home';
     fixture.detectChanges();
-    expect(sortedClassNames(ghIconElement)).toEqual(['gh-icon', 'gh-icon-medium']);
+    expect(sortedClassNames(ghIconElement)).toEqual(['gh-icon', 'gh-icon-m']);
   });
 
   it('should apply class based on size attribute', () => {
@@ -77,12 +77,12 @@ describe('GhIcon', () => {
     const testComponent = fixture.componentInstance;
     const ghIconElement = fixture.debugElement.nativeElement.querySelector('gh-icon');
     testComponent.iconName = 'home';
-    testComponent.iconSize = 'big';
+    testComponent.iconSize = 'l';
     fixture.detectChanges();
-    expect(sortedClassNames(ghIconElement)).toEqual(['gh-icon', 'gh-icon-big']);
-    testComponent.iconSize = 'small';
+    expect(sortedClassNames(ghIconElement)).toEqual(['gh-icon', 'gh-icon-l']);
+    testComponent.iconSize = 's';
     fixture.detectChanges();
-    expect(sortedClassNames(ghIconElement)).toEqual(['gh-icon', 'gh-icon-small']);
+    expect(sortedClassNames(ghIconElement)).toEqual(['gh-icon', 'gh-icon-s']);
   });
 
   it('should throw if a wrong size has been provided', () => {
