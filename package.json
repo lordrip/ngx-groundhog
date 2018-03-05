@@ -36,11 +36,14 @@
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
+    "@angular-devkit/core": "^0.2.0",
+    "@angular/cli": "^1.6.7",
     "@angular/compiler-cli": "~5.2.0",
     "@angular/http": "^5.2.0",
     "@angular/platform-browser-dynamic": "~5.2.0",
     "@angular/platform-server": "~5.2.0",
     "@angular/router": "~5.2.0",
+    "@dynatrace/ngx-groundhog-devkit": "^0.1.1",
     "@types/chalk": "^0.4.31",
     "@types/fs-extra": "^5.0.0",
     "@types/glob": "^5.0.33",

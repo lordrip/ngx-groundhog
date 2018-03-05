@@ -1,0 +1,10 @@
+{
+  "project": {
+    "name": "ngx-groundhog"
+  },
+  "apps": [
+    {
+      "root": "src"
+    }
+  ]
+}
