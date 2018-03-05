@@ -22,7 +22,7 @@ let nextUniqueId = 0;
   styleUrls: ['loading-distractor.css'],
   host: {
     'class': 'gh-loading-spinner',
-    'role': 'alertdialog',
+    'role': 'progressbar',
     'aria-busy': 'true',
     'aria-live': 'assertive',
     '[attr.aria-label]': 'ariaLabel',
