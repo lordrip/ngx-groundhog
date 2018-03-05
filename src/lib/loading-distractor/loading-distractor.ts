@@ -26,7 +26,7 @@ let nextUniqueId = 0;
     'aria-busy': 'true',
     'aria-live': 'assertive',
     '[attr.aria-label]': 'ariaLabel',
-    '[attr.aria-labelledby]': 'ariaLabelledby',
+    '[attr.aria-labeledby]': 'ariaLabelledby',
   },
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,

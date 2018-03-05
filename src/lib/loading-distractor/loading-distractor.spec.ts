@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { GhLoadingDistractorModule, GhLoadingSpinner } from './index';
@@ -12,6 +12,24 @@ describe('GhLoadingDistractor', () => {
     });
 
     TestBed.compileComponents();
+  }));
+
+  it('should support setting a custom aria-label', fakeAsync(() => {
+    const fixture = TestBed.createComponent(TestApp);
+    const spinnerElement = fixture.debugElement.query(By.css('gh-loading-spinner'));
+    const instance = spinnerElement.componentInstance;
+    instance.ariaLabel = 'Custom Label';
+    fixture.detectChanges();
+    expect(spinnerElement.nativeElement.getAttribute('aria-label')).toEqual('Custom Label');
+  }));
+
+  it('should support setting aria-labeledby', fakeAsync(() => {
+    const fixture = TestBed.createComponent(TestApp);
+    const spinnerElement = fixture.debugElement.query(By.css('gh-loading-spinner'));
+    const instance = spinnerElement.componentInstance;
+    instance.ariaLabelledby = 'test';
+    fixture.detectChanges();
+    expect(spinnerElement.nativeElement.getAttribute('aria-labeledby')).toEqual('test');
   }));
 
   it('should augment an existing class with a size property', () => {
