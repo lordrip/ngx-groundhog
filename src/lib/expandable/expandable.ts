@@ -6,6 +6,8 @@ import {
   OnInit,
   Input,
   ChangeDetectorRef,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ENTER, SPACE, DOWN_ARROW, UP_ARROW } from '@angular/cdk/keycodes';
@@ -29,6 +31,9 @@ export class GhExpandable {
   get opened(): boolean { return this._opened; }
   set opened(value: boolean) { this._opened = coerceBooleanProperty(value); }
 
+  /** Event emitted when the select has been opened. */
+  @Output() readonly openedChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   private _opened: boolean = false;
 
   constructor (private _changeDetectorRef: ChangeDetectorRef) {}
@@ -39,11 +44,13 @@ export class GhExpandable {
 
   open(): void {
     this._opened = true;
+    this.openedChange.emit(true);
     this._changeDetectorRef.markForCheck();
   }
 
   close(): void {
     this._opened = false;
+    this.openedChange.emit(false);
     this._changeDetectorRef.markForCheck();
   }
 
@@ -67,6 +74,7 @@ export class GhExpandableTrigger {
       this._expandable = value;
     }
   }
+
   private _expandable: GhExpandable;
 
   get opened(): boolean { return this._expandable.opened; }

@@ -1,3 +1,20 @@
-.gh-expandable {
+@import '../core/style/variables';
+@import '../core/style/interactive-common';
+
+.gh-expandable-trigger {
   display: block;
+  color: $linkcolor;
+
+  &:focus:not([disabled]) {
+    @include gh-focus-style();
+  }
+}
+
+.gh-expandable-trigger:hover {
+  color: $turquoise-700;
+  cursor: pointer;
+}
+
+.gh-expandable-trigger:active {
+  color: $turquoise-800;
 }

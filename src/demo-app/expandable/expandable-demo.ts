@@ -7,4 +7,6 @@ import {Component} from '@angular/core';
   styleUrls: ['expandable-demo.css'],
 })
 export class ExpandableDemo {
+
+  // on click method for testing
 }
