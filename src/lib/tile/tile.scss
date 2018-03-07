@@ -55,6 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 
   svg {
     fill: #fff;
@@ -73,6 +74,7 @@
 .gh-tile-heading {
   padding: 8px 11px 0;
   flex: 1 0 8px;
+  overflow: hidden;
 }
 
 .gh-tile-title {
@@ -82,6 +84,11 @@
   font-weight: 400;
   color: $gray-700;
   line-height: 1.2;
+
+  // Text tructation
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .gh-tile-subtitle {
@@ -92,6 +99,11 @@
   color: $gray-500;
   position: relative;
   line-height: 1.2;
+
+  // Text tructation
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .gh-tile-disabled .gh-tile-title,
