@@ -1,6 +1,8 @@
-$gh-icon-size-small: 18px;
+$gh-icon-size-xsmall: 16px;
+$gh-icon-size-small: 20px;
 $gh-icon-size-medium: 32px;
-$gh-icon-size-big: 64px;
+$gh-icon-size-large: 44px;
+$gh-icon-size-xlarge: 64px;
 
 @mixin square($side) {
   width: $side;
@@ -11,6 +13,10 @@ $gh-icon-size-big: 64px;
   display: inline-block;
 }
 
+.gh-icon-xsmall {
+  @include square($gh-icon-size-xsmall);
+}
+
 .gh-icon-small {
   @include square($gh-icon-size-small);
 }
@@ -19,6 +25,10 @@ $gh-icon-size-big: 64px;
   @include square($gh-icon-size-medium);
 }
 
-.gh-icon-big {
-  @include square($gh-icon-size-big);
+.gh-icon-large {
+  @include square($gh-icon-size-large);
+}
+
+.gh-icon-xlarge {
+  @include square($gh-icon-size-xlarge);
 }

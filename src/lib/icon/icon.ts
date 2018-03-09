@@ -11,9 +11,18 @@ import {
 import {take} from 'rxjs/operators/take';
 import {GhIconRegistry} from './icon-registry';
 
-export type GhIconSize = 'small' | 'medium' | 'big';
-const sizes: GhIconSize[] = ['small', 'medium', 'big'];
-const defaultIconSize = 'medium';
+/**
+ * Deprecated sizes for icons
+ * small and medium stay the same, big gets mapped to large
+ * @deprecated 0.5.0
+ * */
+const deprecatedSizesMap = {
+  'big': 'large',
+};
+
+export type GhIconSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+const sizes: GhIconSize[] = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
+const defaultIconSize = 'small';
 
 @Component({
   moduleId: module.id,
@@ -35,10 +44,17 @@ export class GhIcon implements OnChanges {
   /** Name of the icon in the SVG icon set. */
   @Input() svgIcon: string;
 
-  /** Size of the icon (can be 'small', 'medium' or 'big') */
+  /**
+   * Size of the icon (can be 'xsmall', 'small', 'medium', 'large' or 'xlarge')
+   * */
   @Input()
   get size(): GhIconSize { return this._size; }
   set size(value: GhIconSize) {
+    /**
+     * checks first if it needs to map the value from a deprecated size to a new one
+     * @deprecated 0.5.0
+     */
+    value = deprecatedSizesMap[value] || value;
     if (value && sizes.indexOf(value) === -1) {
       throw new Error(`"${value}" is not a valid size for GhIcon. ` +
         `Valid sizes are: ${sizes.map(s => `"${s}"`).join(', ')}`);
