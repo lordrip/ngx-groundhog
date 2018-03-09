@@ -72,6 +72,15 @@ describe('GhIcon', () => {
     expect(sortedClassNames(ghIconElement)).toEqual(['gh-icon', 'gh-icon-small']);
   });
 
+  it('should map the deprecated size "big" to "large"', () => {
+    const fixture = TestBed.createComponent(IconWithSize);
+    const testComponent = fixture.componentInstance;
+    const ghIconElement = fixture.debugElement.nativeElement.querySelector('gh-icon');
+    testComponent.iconSize = 'big';
+    fixture.detectChanges();
+    expect(sortedClassNames(ghIconElement)).toEqual(['gh-icon', 'gh-icon-large']);
+  });
+
   it('should apply class based on size attribute', () => {
     const fixture = TestBed.createComponent(IconWithSize);
     const testComponent = fixture.componentInstance;
