@@ -17,7 +17,7 @@
     <div class="gh-form-field-error" *ngIf="_getDisplayedError()" [@transitionErrors]="_errorAnimationState">
         <ng-content select="gh-error"></ng-content>
     </div>
-    <div class="gh-form-field-hint-wrapper">
+    <div class="gh-form-field-hint-wrapper" *ngIf="_hintChildren.length || hintLabel">
       <gh-hint *ngIf="hintLabel" [id]="_hintLabelId">{{hintLabel}}</gh-hint>
       <ng-content select="gh-hint:not([align='end'])"></ng-content>
       <span class="gh-form-field-hint-spacer"></span>
