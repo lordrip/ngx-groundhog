@@ -3,6 +3,8 @@
 `<gh-icon>` provides an easy way to use SVG (not font or bitmap) icons in your app. It does so by directly inlining the SVG content into the page as a child of the component. (Rather than using a tag or a div background image).
 This makes it easier to apply CSS styles to SVG icons.
 
+`<gh-icon>` also has a `size` property. The available sizes are `xsmall`, `small`, `medium`, `large`, `xlarge`. If no `size` is specified, the default is `small`.
+
 **Example**
 ```html
 <gh-icon svgIcon="agent"></gh-icon> <!-- Icon named 'agent' in the default namespace -->
