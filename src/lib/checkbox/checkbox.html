@@ -1,13 +1,18 @@
-<input 
-  type="checkbox"
-  class="gh-checkbox-input"
-  [name]="name"
-  [value]="value"
-  [id]="id"
-  [checked]="checked" />
-<label 
+<label
   class="gh-checkbox-label"
-  [for]="id">
+  [attr.for]="_inputId">
+  <input #input
+    type="checkbox"
+    class="gh-checkbox-input"
+    [required]="required"
+    [checked]="checked"
+    [disabled]="disabled"
+    [name]="name"
+    [value]="value"
+    [id]="_inputId"
+    [tabIndex]="tabIndex"
+    (change)="_onInputChange($event)"
+    (click)="_onInputClick($event)"/>
   <div class="gh-checkbox-container">
     <div class="gh-checkbox-checkmark">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -16,6 +21,8 @@
     </div>
   </div>
   <div class="gh-checkbox-caption">
+    <!-- Add an invisible span so JAWS can read the label -->
+    <span style="display:none">&nbsp;</span>
     <ng-content></ng-content>
   </div>
 </label>
