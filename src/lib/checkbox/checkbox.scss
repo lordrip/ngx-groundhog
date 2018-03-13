@@ -1,7 +1,19 @@
 @import '../core/style/variables';
+@import '../core/style/interactive-common';
+
+$gh-checkbox-size: 20px;
 
 .gh-checkbox {
   display: inline-block;
+}
+
+.gh-checkbox:not(.gh-checkbox-disabled) {
+  cursor: pointer;
+}
+
+.gh-checkbox-disabled,
+.gh-checkbox-disabled .gh-checkbox-label {
+  cursor: default;
 }
 
 .gh-checkbox-input {
@@ -15,22 +27,34 @@
 }
 
 .gh-checkbox-container {
-  width: 20px;
-  height: 20px;
+  width: $gh-checkbox-size;
+  height: $gh-checkbox-size;
   border: solid 2px $turquoise-600;
   margin-right: 8px;
+
+  .gh-checkbox-disabled & {
+    border-color: $disabledcolor;
+  }
+
+  .gh-checkbox-button:not(.gh-checkbox-disabled):hover & {
+    border-color: $turquoise-700;
+  }
+
+  .gh-checkbox-focused:not(.gh-checkbox-disabled) & {
+    @include gh-focus-style();
+  }
 }
 
 .gh-checkbox-checkmark {
-  width: 16px;
-  height: 16px;
+  width: $gh-checkbox-size - 4;
+  height: $gh-checkbox-size - 4;
 }
 
 .gh-checkbox-checkmark svg {
   display: block;
   stroke: $turquoise-600;
-  width: 16px;
-  height: 16px;
+  width: $gh-checkbox-size - 4;
+  height: $gh-checkbox-size - 4;
   transition: stroke-dashoffset 150ms cubic-bezier(0.14, 0, 0, 1);
   stroke-dashoffset: 560;
 }
@@ -38,6 +62,10 @@
 .gh-checkbox-caption {
   font-size: 14px;
   padding-right: 20px;
+
+  .gh-checkbox-disabled & {
+    color: $disabledcolor;
+  }
 }
 
 .gh-checkbox-checked .gh-checkbox-checkmark svg {

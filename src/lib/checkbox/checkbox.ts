@@ -49,7 +49,7 @@ export const _GhCheckboxMixinBase = mixinTabIndex(mixinDisabled(GhCheckboxBase))
     '[id]': 'id',
     'class': 'gh-checkbox',
     '[class.gh-checkbox-checked]': 'checked',
-    '[class.mat-checkbox-disabled]': 'disabled',
+    '[class.gh-checkbox-disabled]': 'disabled',
     '(focus)': '_inputElement.nativeElement.focus()',
   },
   inputs: ['disabled', 'tabIndex'],
