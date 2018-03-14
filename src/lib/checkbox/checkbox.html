@@ -11,6 +11,9 @@
     [value]="value"
     [id]="_inputId"
     [tabIndex]="tabIndex"
+    [attr.aria-label]="ariaLabel || null"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-checked]="checked.toString()"
     (change)="_onInputChange($event)"
     (click)="_onInputClick($event)"/>
   <div class="gh-checkbox-container">

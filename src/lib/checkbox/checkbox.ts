@@ -60,8 +60,6 @@ export const _GhCheckboxMixinBase = mixinTabIndex(mixinDisabled(GhCheckboxBase))
 export class GhCheckbox extends _GhCheckboxMixinBase
   implements CanDisable, HasTabIndex, AfterViewInit, OnDestroy {
 
-  // TODO: aria attributes, required
-
   /** Whether or not the checkbox is checked. */
   @Input()
   get checked(): boolean { return this._checked; }
@@ -88,6 +86,12 @@ export class GhCheckbox extends _GhCheckboxMixinBase
 
   /** The value attribute of the native input element */
   @Input() value: string;
+
+  /** The 'aria-labelledby' attribute takes precedence as the element's text alternative. */
+  @Input('aria-label') ariaLabel: string = '';
+
+  /** The 'aria-describedby' attribute is read after the element's label and field type. */
+  @Input('aria-labelledby') ariaLabelledby: string | null = null;
 
   /** Event emitted when the checkbox's `checked` value changes. */
   @Output() readonly change: EventEmitter<GhCheckboxChange> = new EventEmitter<GhCheckboxChange>();
