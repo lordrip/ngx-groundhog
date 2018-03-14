@@ -7,7 +7,8 @@ $gh-checkbox-size: 20px;
   display: inline-block;
 }
 
-.gh-checkbox:not(.gh-checkbox-disabled) {
+.gh-checkbox:not(.gh-checkbox-disabled),
+.gh-checkbox:not(.gh-checkbox-disabled) .gh-checkbox-label {
   cursor: pointer;
 }
 
@@ -57,6 +58,10 @@ $gh-checkbox-size: 20px;
   height: $gh-checkbox-size - 4;
   transition: stroke-dashoffset 150ms cubic-bezier(0.14, 0, 0, 1);
   stroke-dashoffset: 560;
+
+  .gh-checkbox-disabled & {
+    stroke: $disabledcolor;
+  }
 }
 
 .gh-checkbox-caption {

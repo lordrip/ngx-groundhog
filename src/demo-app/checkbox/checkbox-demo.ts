@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['checkbox-demo.css'],
 })
 export class CheckboxDemo {
-
+  isChecked: boolean = false;
+  isDisabled: boolean = false;
 }

@@ -9,7 +9,8 @@ import {
   ElementRef,
   ViewChild,
   AfterViewInit,
-  OnDestroy
+  OnDestroy,
+  forwardRef
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
@@ -20,6 +21,7 @@ import {
 } from '@dynatrace/ngx-groundhog/core';
 import { FocusOrigin } from '@angular/cdk/a11y';
 import { FocusMonitor } from '@angular/cdk/a11y';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 /**
  * Checkbox IDs need to be unique across components, so this counter exists outside of
@@ -27,10 +29,21 @@ import { FocusMonitor } from '@angular/cdk/a11y';
  */
 let nextUniqueId = 0;
 
+/**
+ * Provider Expression that allows mat-checkbox to register as a ControlValueAccessor.
+ * This allows it to support [(ngModel)].
+ * @docs-private
+ */
+export const GH_CHECKBOX_CONTROL_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => GhCheckbox),
+  multi: true
+};
+
 /** Change event object emitted by GhCheckbox */
 export interface GhCheckboxChange {
   source: GhCheckbox;
-  value: any;
+  checked: boolean;
 }
 
 // Boilerplate for applying mixins to GhCheckbox.
@@ -53,12 +66,13 @@ export const _GhCheckboxMixinBase = mixinTabIndex(mixinDisabled(GhCheckboxBase))
     '(focus)': '_inputElement.nativeElement.focus()',
   },
   inputs: ['disabled', 'tabIndex'],
+  providers: [GH_CHECKBOX_CONTROL_VALUE_ACCESSOR],
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GhCheckbox extends _GhCheckboxMixinBase
-  implements CanDisable, HasTabIndex, AfterViewInit, OnDestroy {
+  implements CanDisable, HasTabIndex, AfterViewInit, OnDestroy, ControlValueAccessor {
 
   /** Whether or not the checkbox is checked. */
   @Input()
@@ -102,10 +116,13 @@ export class GhCheckbox extends _GhCheckboxMixinBase
   /** Returns the unique id for the visual hidden input. */
   get _inputId(): string { return `${this.id}-input`; }
 
+  _onTouched: () => any = () => {};
+
   private _checked: boolean = false;
   private _uid = `gh-checkbox-${nextUniqueId++}`;
   private _id: string;
   private _required: boolean;
+  private _controlValueAccessorChangeFn: (value: any) => void = () => {};
 
   constructor(
     private _changeDetectorRef: ChangeDetectorRef,
@@ -146,6 +163,7 @@ export class GhCheckbox extends _GhCheckboxMixinBase
 
     if (!this.disabled) {
       this.toggle();
+      this._emitChangeEvent();
     }
   }
 
@@ -156,6 +174,21 @@ export class GhCheckbox extends _GhCheckboxMixinBase
     event.stopPropagation();
   }
 
+  /** Implemented as a part of ControlValueAccessor. */
+  writeValue(value: any) {
+    this.checked = !!value;
+  }
+
+  /** Implemented as a part of ControlValueAccessor. */
+  registerOnChange(fn: (value: any) => void) {
+    this._controlValueAccessorChangeFn = fn;
+  }
+
+  /** Implemented as a part of ControlValueAccessor. */
+  registerOnTouched(fn: any) {
+    this._onTouched = fn;
+  }
+
   private _onInputFocusChange(focusOrigin: FocusOrigin) {
     const element = this._elementRef.nativeElement;
 
@@ -163,7 +196,12 @@ export class GhCheckbox extends _GhCheckboxMixinBase
       element.classList.add('gh-checkbox-focused');
     } else if (!focusOrigin) {
       element.classList.remove('gh-checkbox-focused');
+      this._onTouched();
     }
   }
 
+  private _emitChangeEvent() {
+    this._controlValueAccessorChangeFn(this.checked);
+    this.change.emit({source: this, checked: this.checked});
+  }
 }

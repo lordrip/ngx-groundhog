@@ -6,9 +6,16 @@
     <gh-checkbox disabled>Disabled checkbox</gh-checkbox>
   </section>
   <section>
-    <h2>Choose your interests</h2>
-    <gh-checkbox name="interest" value="coding" checked>Coding</gh-checkbox>
-    <gh-checkbox name="interest" value="music">Music</gh-checkbox>
-    <gh-checkbox name="interest" value="sports">Sports</gh-checkbox>
+    <h3>Ng Forms</h3>
+    <div>
+      <gh-checkbox
+        [(ngModel)]="isChecked"
+        [disabled]="isDisabled">Some question</gh-checkbox>
+      <strong>{{isChecked ? 'Yes!' : 'No!'}}</strong>
+    </div>
+    <div>
+      <gh-checkbox
+        [(ngModel)]="isDisabled">Disabled</gh-checkbox>
+    </div>
   </section>
 </div>
