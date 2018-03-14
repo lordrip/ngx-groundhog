@@ -8,6 +8,7 @@
 | Feature            | Status      | Version        | Docs        | Issue/PR    |
 |--------------------|-------------|-------------|-------------|-------------|
 | Button             | Finished    | >= 0.1.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/button/README.md)            | - |
+| Checkbox           | Finished    | >= 0.5.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/checkbox/README.md)          | - |
 | Form field         | Finished    | >= 0.1.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/form-field/README.md)        | - |
 | Icon               | Finished    | >= 0.1.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/icon/README.md)              | - |
 | Input              | Finished    | >= 0.1.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/input/README.md)             | - |
@@ -20,7 +21,6 @@
 | Radio button       | Finished    | >= 0.3.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/radio/README.md) | - |
 | Loading distractor | Finished    | >= 0.4.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/loading-distractor/README.md) | - |
 | Expandable         | In-progress | - | - | #47 |
-| Checkbox           | In-progress | - | - | #12 / #53 |
 | Datepicker         | In-progress | - | - | #49 / #34 |
 
 ## Getting started
