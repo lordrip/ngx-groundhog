@@ -10,18 +10,26 @@ import {
   ViewChild,
   AfterViewInit,
   OnDestroy,
-  forwardRef
+  forwardRef,
+  Attribute,
+  Directive,
+  Provider
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { FocusOrigin } from '@angular/cdk/a11y';
+import { FocusMonitor } from '@angular/cdk/a11y';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  NG_VALIDATORS,
+  CheckboxRequiredValidator
+} from '@angular/forms';
 import {
   mixinTabIndex,
   mixinDisabled,
   CanDisable,
   HasTabIndex
 } from '@dynatrace/ngx-groundhog/core';
-import { FocusOrigin } from '@angular/cdk/a11y';
-import { FocusMonitor } from '@angular/cdk/a11y';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 /**
  * Checkbox IDs need to be unique across components, so this counter exists outside of
@@ -116,24 +124,25 @@ export class GhCheckbox extends _GhCheckboxMixinBase
   /** Returns the unique id for the visual hidden input. */
   get _inputId(): string { return `${this.id}-input`; }
 
-  _onTouched: () => any = () => {};
+  _onTouched: () => any = () => { };
 
   private _checked: boolean = false;
   private _uid = `gh-checkbox-${nextUniqueId++}`;
   private _id: string;
   private _required: boolean;
-  private _controlValueAccessorChangeFn: (value: any) => void = () => {};
+  private _controlValueAccessorChangeFn: (value: any) => void = () => { };
 
   constructor(
     private _changeDetectorRef: ChangeDetectorRef,
     private _elementRef: ElementRef,
-    private _focusMonitor: FocusMonitor
+    private _focusMonitor: FocusMonitor,
+    @Attribute('tabindex') tabIndex: string,
   ) {
     super();
 
     // Force setter to be called in case id was not specified.
     this.id = this.id;
-    this.tabIndex = this.tabIndex;
+    this.tabIndex = parseInt(tabIndex) || 0;
   }
 
   ngAfterViewInit() {
@@ -202,6 +211,24 @@ export class GhCheckbox extends _GhCheckboxMixinBase
 
   private _emitChangeEvent() {
     this._controlValueAccessorChangeFn(this.checked);
-    this.change.emit({source: this, checked: this.checked});
+    this.change.emit({ source: this, checked: this.checked });
   }
 }
+
+export const GH_CHECKBOX_REQUIRED_VALIDATOR: Provider = {
+  provide: NG_VALIDATORS,
+  useExisting: forwardRef(() => GhCheckboxRequiredValidator),
+  multi: true
+};
+
+/**
+ * Validator for checkbox's required attribute in template-driven checkbox.
+ * TODO @thomaspink: Remove once CheckboxRequiredValidator supports custom checkbox
+ */
+@Directive({
+  selector: `gh-checkbox[required][formControlName],
+             gh-checkbox[required][formControl], gh-checkbox[required][ngModel]`,
+  providers: [GH_CHECKBOX_REQUIRED_VALIDATOR],
+  host: { '[attr.required]': 'required ? "" : null' }
+})
+export class GhCheckboxRequiredValidator extends CheckboxRequiredValidator { }
