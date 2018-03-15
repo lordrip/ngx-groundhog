@@ -41,10 +41,10 @@ export class DemoApp {
   navItems = [
     {name: 'Start', route: '/'},
     {name: 'Button', route: '/button'},
+    {name: 'Card', route: '/card'},
     {name: 'Checkbox', route: '/checkbox'},
     {name: 'Icon', route: '/icon'},
     {name: 'Input', route: '/input'},
-    {name: 'Island', route: '/island'},
     {name: 'Loading Distractor', route: '/loading-distractor'},
     {name: 'Progress circle', route: '/progress-circle'},
     {name: 'Radio', route: '/radio'},

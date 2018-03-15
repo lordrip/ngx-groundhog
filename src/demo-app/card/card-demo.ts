@@ -4,11 +4,11 @@ import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   moduleId: module.id,
-  selector: 'island-demo',
-  templateUrl: 'island-demo.html',
-  styleUrls: ['island-demo.css'],
+  selector: 'card-demo',
+  templateUrl: 'card-demo.html',
+  styleUrls: ['card-demo.css'],
 })
-export class IslandDemo {
+export class CardDemo {
   constructor(iconRegistry: GhIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry
       .addSvgIcon('agent',

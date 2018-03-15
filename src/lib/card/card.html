@@ -1,0 +1,11 @@
+<div class="gh-card-header" *ngIf="!!_title">
+  <ng-content select="gh-card-icon, [gh-card-icon], [ghCardIcon]"></ng-content>
+  <div class="gh-card-heading">
+      <ng-content select="gh-card-title, [gh-card-title], [ghCardTitle]"></ng-content>
+      <ng-content select="gh-card-subtitle, [gh-card-subtitle], [ghCardSubitle]"></ng-content>
+  </div>
+  <ng-content select="gh-card-actions, [gh-card-actions], [ghCardActions]"></ng-content>
+</div>
+<div class="gh-card-content">
+  <ng-content></ng-content>
+</div>

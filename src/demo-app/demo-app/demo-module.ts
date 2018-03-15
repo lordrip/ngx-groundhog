@@ -7,7 +7,7 @@ import {ButtonDemo} from '../button/button-demo';
 import {CheckboxDemo} from '../checkbox/checkbox-demo';
 import {IconDemo} from '../icon/icon-demo';
 import {InputDemo} from 'input/input-demo';
-import {IslandDemo} from 'island/island-demo';
+import {CardDemo} from 'card/card-demo';
 import {DemoApp, Home} from './demo-app';
 import {DEMO_APP_ROUTES} from './routes';
 import {SelectDemo} from '../select/select-demo';
@@ -30,7 +30,7 @@ import {LoadingDistractorDemo} from 'loading-distractor/loading-distractor-demo'
     CheckboxDemo,
     IconDemo,
     InputDemo,
-    IslandDemo,
+    CardDemo,
     LoadingDistractorDemo,
     ProgressCircleDemo,
     RadioDemo,

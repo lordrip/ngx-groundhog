@@ -6,7 +6,7 @@ import {InputDemo} from 'input/input-demo';
 import {DemoApp, Home} from './demo-app';
 import {SelectDemo} from '../select/select-demo';
 import {ProgressCircleDemo} from '../progress-circle/progress-circle-demo';
-import {IslandDemo} from '../island/island-demo';
+import {CardDemo} from '../card/card-demo';
 import {TileDemo} from '../tile/tile-demo';
 import {ContextMenuDemo} from '../context-menu/context-menu-demo';
 import {RadioDemo} from '../radio/radio-demo';
@@ -19,7 +19,7 @@ export const DEMO_APP_ROUTES: Routes = [
     {path: 'checkbox', component: CheckboxDemo},
     {path: 'icon', component: IconDemo},
     {path: 'input', component: InputDemo},
-    {path: 'island', component: IslandDemo},
+    {path: 'card', component: CardDemo},
     {path: 'loading-distractor', component: LoadingDistractorDemo},
     {path: 'progress-circle', component: ProgressCircleDemo},
     {path: 'radio', component: RadioDemo},

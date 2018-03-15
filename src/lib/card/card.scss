@@ -1,6 +1,6 @@
 @import '../core/style/variables';
 
-.gh-island {
+.gh-card {
   display: block;
   font-family: $mainfont;
   background-color: #fff;
@@ -9,7 +9,7 @@
   margin: 24px;
 }
 
-.gh-island-icon {
+.gh-card-icon {
   width: 44px;
   height: 44px;
   display: flex;
@@ -23,33 +23,33 @@
   }
 }
 
-.gh-island-header {
+.gh-card-header {
   display: flex;
   width: 100%;
   padding-bottom: 16px;
 }
 
-.gh-island-heading {
+.gh-card-heading {
   flex: 1 0 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.gh-island-title {
+.gh-card-title {
   display: block;
   font-size: 24px;
   color: $gray-700;
   font-weight: 300;
 }
 
-.gh-island-subtitle {
+.gh-card-subtitle {
   display: block;
   font-size: 14px;
   color: $gray-700;
 }
 
-.gh-island-actions {
+.gh-card-actions {
   display: block;
 
 }
