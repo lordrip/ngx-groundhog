@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {
   GhButtonModule,
+  GhCardModule,
   GhFormFieldModule,
   GhCheckboxModule,
   GhIconModule,
   GhInputModule,
-  GhIslandModule,
   GhLoadingDistractorModule,
   GhProgressCircleModule,
   GhRadioModule,
@@ -25,7 +25,7 @@ import {
     GhCheckboxModule,
     GhIconModule,
     GhInputModule,
-    GhIslandModule,
+    GhCardModule,
     GhLoadingDistractorModule,
     GhProgressCircleModule,
     GhRadioModule,

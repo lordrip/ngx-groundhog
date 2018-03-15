@@ -1,23 +1,23 @@
 @import '../core/style/variables';
 @import '../core/theming/theming';
 
-@mixin gh-island-theme($theme) {
+@mixin gh-card-theme($theme) {
   $is-dark: map-get($theme, 'is-dark');
 
   @if ($is-dark == true) {
-    .gh-island {
+    .gh-card {
       color: #fff;
       background: rgba(255, 255, 255, 0.2);
     }
-    .gh-island-icon svg {
+    .gh-card-icon svg {
       fill: #fff;
     }
 
-    .gh-island-title {
+    .gh-card-title {
       color: #fff;
     }
 
-    .gh-island-subtitle {
+    .gh-card-subtitle {
       color: #fff;
     }
   }
