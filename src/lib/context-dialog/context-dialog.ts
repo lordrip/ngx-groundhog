@@ -69,16 +69,13 @@ implements OnDestroy, HasTabIndex, CanDisable, CanColor {
   /** The class that traps and manages focus within the overlay. */
   private _focusTrap: FocusTrap | null;
 
-  // Element that was focused before the context-dialog was opened.
-  // Save this to restore upon close.
+  /**
+   * Element that was focused before the context-dialog was opened.
+   * Save this to restore upon close. */
   private _elementFocusedBeforeDialogWasOpened: HTMLElement | null = null;
 
   /** Aria label of the context-dialog. */
   @Input('aria-label') ariaLabel: string = '';
-
-  get _ariaLabel(): string | null {
-    return this.ariaLabel;
-  }
 
   /** Event emitted when the select has been opened. */
   @Output() readonly openedChange: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -96,10 +93,10 @@ implements OnDestroy, HasTabIndex, CanDisable, CanColor {
   }];
 
   /** Overlay pane containing the content */
-  @ViewChild(CdkConnectedOverlay) overlayDir: CdkConnectedOverlay;
+  @ViewChild(CdkConnectedOverlay) _overlayDir: CdkConnectedOverlay;
 
   /** Panel that holds the content */
-  @ViewChild('panel') panel: ElementRef;
+  @ViewChild('panel') _panel: ElementRef;
 
   /** Whether or not the overlay panel is open. */
   get panelOpen() {
@@ -146,7 +143,7 @@ implements OnDestroy, HasTabIndex, CanDisable, CanColor {
   /** Moves the focus inside the focus trap. */
   private _trapFocus() {
     if (!this._focusTrap) {
-      this._focusTrap = this._focusTrapFactory.create(this.overlayDir.overlayRef.overlayElement);
+      this._focusTrap = this._focusTrapFactory.create(this._overlayDir.overlayRef.overlayElement);
     }
     this._focusTrap.focusInitialElementWhenReady();
   }
@@ -180,7 +177,7 @@ implements OnDestroy, HasTabIndex, CanDisable, CanColor {
     /** trap focus within the overlay */
     this._trapFocus();
 
-    const positionChange = this.overlayDir.positionChange;
+    const positionChange = this._overlayDir.positionChange;
 
     // Set classes depending on the position of the overlay
     positionChange
@@ -195,10 +192,11 @@ implements OnDestroy, HasTabIndex, CanDisable, CanColor {
       .subscribe(connectionPair => {
         // Set the classes to indicate the position of the overlay
         if (this._connectionPair) {
-          this.panel.nativeElement.classList
+          this._panel.nativeElement.classList
             .remove(`gh-context-dialog-panel-${this._connectionPair.originY}`);
         }
-        this.panel.nativeElement.classList.add(`gh-context-dialog-panel-${connectionPair.originY}`);
+        this._panel.nativeElement.classList
+          .add(`gh-context-dialog-panel-${connectionPair.originY}`);
         this._connectionPair = connectionPair;
       });
   }
