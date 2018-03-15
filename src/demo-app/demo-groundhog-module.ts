@@ -13,6 +13,7 @@ import {
   GhTileModule,
   GhThemingModule,
   GhContextMenuModule,
+  GhContextDialogModule,
 } from '@dynatrace/ngx-groundhog';
 
 /**
@@ -33,6 +34,7 @@ import {
     GhTileModule,
     GhThemingModule,
     GhContextMenuModule,
+    GhContextDialogModule,
   ]
 })
 export class DemoGroundhogModule {}

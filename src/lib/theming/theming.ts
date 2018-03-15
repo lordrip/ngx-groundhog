@@ -13,11 +13,11 @@ import { Subscription } from 'rxjs/Subscription';
 const MAX_DEPTH = 1;
 // ghTemes placed on elements containing one of these classes
 // will ignore the max depth check.
-// Needed for special cases like the context menu where the
+// Needed for special cases like the context dialog where the
 // buttons are always dark.
 // Only add if you are absolutely sure what you are doing and
 // only if you have adjusted the css selectors.
-const MAX_DEPTH_EXCEPTION_CLASSESS = ['gh-context-menu-panel'];
+const MAX_DEPTH_EXCEPTION_CLASSESS = ['gh-context-dialog-panel'];
 
 const THEME_VALIDATION_RX = /((?:[a-zA-Z-]+)?)(?::(light|dark))?/;
 const THEME_VARIANTS = ['light', 'dark'];

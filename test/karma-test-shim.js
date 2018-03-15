@@ -71,6 +71,7 @@ System.config({
     '@dynatrace/ngx-groundhog/form-field': 'dist/packages/ngx-groundhog/form-field/index.js',
     '@dynatrace/ngx-groundhog/theming': 'dist/packages/ngx-groundhog/theming/index.js',
     '@dynatrace/ngx-groundhog/context-menu': 'dist/packages/ngx-groundhog/context-menu/index.js',
+    '@dynatrace/ngx-groundhog/context-dialog': 'dist/packages/ngx-groundhog/context-dialog/index.js',
   },
   packages: {
     // Thirdparty barrels.

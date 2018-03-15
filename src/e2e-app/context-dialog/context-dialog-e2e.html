@@ -1,0 +1,11 @@
+<div>
+    <button id="disable-toggle" gh-button (click)="disabled=!disabled">Disable</button>
+    <span id="click-counter">{{clickCounter}}</span>
+    <section>
+      <gh-context-menu id="context-dialog" [disabled]="disabled">
+        <p>Some awesome content</p>
+        <button>Edit</button>
+      </gh-context-menu>
+    </section>
+  </div>
+  

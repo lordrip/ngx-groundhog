@@ -51,6 +51,7 @@ export class DemoApp {
     {name: 'Select', route: '/select'},
     {name: 'Tile', route: '/tile'},
     {name: 'ContextMenu', route: '/context-menu'},
+    {name: 'ContextDialog', route: '/context-dialog'},
   ];
 
   currentTheme: string = 'turquoise';

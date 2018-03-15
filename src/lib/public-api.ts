@@ -11,5 +11,6 @@ export * from '@dynatrace/ngx-groundhog/radio';
 export * from '@dynatrace/ngx-groundhog/select';
 export * from '@dynatrace/ngx-groundhog/tile';
 export * from '@dynatrace/ngx-groundhog/theming';
+export * from '@dynatrace/ngx-groundhog/context-dialog';
 export * from '@dynatrace/ngx-groundhog/context-menu';
 

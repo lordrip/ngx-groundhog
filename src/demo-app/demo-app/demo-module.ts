@@ -16,6 +16,7 @@ import {TileDemo} from 'tile/tile-demo';
 import {ContextMenuDemo} from '../context-menu/context-menu-demo';
 import {RadioDemo} from 'radio/radio-demo';
 import {LoadingDistractorDemo} from 'loading-distractor/loading-distractor-demo';
+import {ContextDialogDemo} from '../context-dialog/context-dialog-demo';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import {LoadingDistractorDemo} from 'loading-distractor/loading-distractor-demo'
     DemoApp,
     Home,
     ContextMenuDemo,
+    ContextDialogDemo,
   ],
   entryComponents: [
     DemoApp,
