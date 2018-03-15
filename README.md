@@ -20,6 +20,7 @@
 | Context menu       | Finished    | >= 0.2.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/context-menu/README.md)      | - |
 | Radio button       | Finished    | >= 0.3.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/radio/README.md) | - |
 | Loading distractor | Finished    | >= 0.4.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/loading-distractor/README.md) | - |
+| Context dialog     | Finished    | >= 0.5.0    | [Docs](https://github.com/Dynatrace/ngx-groundhog/blob/master/src/lib/context-dialog/README.md)    | - |
 | Expandable         | In-progress | - | - | #47 |
 | Datepicker         | In-progress | - | - | #49 / #34 |
 
