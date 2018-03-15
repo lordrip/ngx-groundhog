@@ -12,6 +12,7 @@ import {
   GhTileModule,
   GhThemingModule,
   GhContextMenuModule,
+  GhCheckboxModule,
 } from '@dynatrace/ngx-groundhog';
 
 @Component({
@@ -37,6 +38,7 @@ export class KitchenSink {
     GhTileModule,
     GhThemingModule,
     GhContextMenuModule,
+    GhCheckboxModule,
   ],
   bootstrap: [KitchenSink],
   declarations: [KitchenSink],

@@ -1,6 +1,6 @@
 # Radio
 
-`<gh-radio>` provides the same functionality as a native <input type="radio"> enhanced with styling and animations.
+`<gh-radio-button>` provides the same functionality as a native <input type="radio"> enhanced with styling and animations.
 
 ```html
 <gh-radio-group name="group0">

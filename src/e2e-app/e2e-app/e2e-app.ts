@@ -16,6 +16,7 @@ export class E2EApp {
   navItems = [
     {name: 'Start', route: '/'},
     {name: 'Button', route: '/button'},
+    {name: 'Checkbox', route: '/checkbox'},
     {name: 'Input', route: '/input'},
     {name: 'Radio', route: '/radio'},
     {name: 'Tile', route: '/tile'},

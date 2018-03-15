@@ -47,6 +47,9 @@ export class GhTheme implements OnDestroy {
    */
   @Input()
   set ghTheme(value: string) {
+    if (value === void 0) {
+      return;
+    }
     const result = !!value ? value.match(THEME_VALIDATION_RX) : null;
     if (result === null) {
       throw getGhThemeNotValidError(value);

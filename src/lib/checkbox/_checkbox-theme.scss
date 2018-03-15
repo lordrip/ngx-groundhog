@@ -1,0 +1,20 @@
+@import '../core/style/variables';
+@import '../core/theming/theming';
+
+@mixin gh-checkbox-theme($theme) {
+  $is-dark: map-get($theme, 'is-dark');
+
+  @if ($is-dark == true) {
+    .gh-checkbox:not(.gh-checkbox-disabled) .gh-checkbox-container {
+      border-color: #fff;
+    }
+    .gh-checkbox:not(.gh-checkbox-disabled):hover .gh-checkbox-container {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: #fff;
+    }
+    .gh-checkbox-checkmark svg,
+    .gh-checkbox:not(.gh-checkbox-disabled):hover .gh-checkbox-checkmark svg {
+      stroke: #fff;
+    }
+  }
+}

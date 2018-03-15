@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {
   GhButtonModule,
   GhFormFieldModule,
+  GhCheckboxModule,
   GhIconModule,
   GhInputModule,
   GhIslandModule,
@@ -21,6 +22,7 @@ import {
   exports: [
     GhButtonModule,
     GhFormFieldModule,
+    GhCheckboxModule,
     GhIconModule,
     GhInputModule,
     GhIslandModule,
