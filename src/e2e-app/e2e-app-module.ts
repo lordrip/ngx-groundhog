@@ -13,13 +13,15 @@ import {
   GhContextMenuModule,
   GhRadioModule,
   GhCheckboxModule,
+  GhContextDialogModule,
 } from '@dynatrace/ngx-groundhog';
 import { ButtonE2E } from './button/button-e2e';
 import { InputE2E } from './input/input-e2e';
-import { TileE2E } from 'tile/tile-e2e';
-import { ContextMenuE2E } from 'context-menu/context-menu-e2e';
+import { TileE2E } from './tile/tile-e2e';
+import { ContextMenuE2E } from './context-menu/context-menu-e2e';
 import { RadioButtonsE2E } from 'radio/radio-e2e';
 import { CheckboxeE2E } from './checkbox/checkbox-e2e';
+import { ContextDialogE2E } from './context-dialog/context-dialog-e2e';
 
 /**
  * NgModule that contains all Groundhog modules that are required to serve the e2e-app.
@@ -33,6 +35,7 @@ import { CheckboxeE2E } from './checkbox/checkbox-e2e';
     GhTileModule,
     GhContextMenuModule,
     GhCheckboxModule,
+    GhContextDialogModule,
   ]
 })
 export class E2eNgxGroundhogModule {}
@@ -54,6 +57,7 @@ export class E2eNgxGroundhogModule {}
     RadioButtonsE2E,
     TileE2E,
     ContextMenuE2E,
+    ContextDialogE2E,
   ],
   bootstrap: [E2EApp],
   entryComponents: [Home],

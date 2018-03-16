@@ -11,6 +11,10 @@ The Angular Groundhog Context Menu creates a menu thats hidden inside an overlay
 </gh-context-menu>
 ```
 
+## Accessibility
+
+Context menus without should be given a meaningful label via aria-label, because the button does not have a text.
+
 ## Components
 
 ### Context Menu

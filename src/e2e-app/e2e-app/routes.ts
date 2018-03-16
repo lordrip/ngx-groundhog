@@ -6,6 +6,7 @@ import {TileE2E} from '../tile/tile-e2e';
 import {ContextMenuE2E} from 'context-menu/context-menu-e2e';
 import {RadioButtonsE2E} from 'radio/radio-e2e';
 import { CheckboxeE2E } from 'checkbox/checkbox-e2e';
+import { ContextDialogE2E } from '../context-dialog/context-dialog-e2e';
 
 export const E2E_APP_ROUTES: Routes = [
   {path: '', component: Home},
@@ -15,4 +16,5 @@ export const E2E_APP_ROUTES: Routes = [
   {path: 'radio', component: RadioButtonsE2E},
   {path: 'tile', component: TileE2E},
   {path: 'context-menu', component: ContextMenuE2E},
+  {path: 'context-dialog', component: ContextDialogE2E},
 ];

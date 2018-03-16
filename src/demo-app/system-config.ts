@@ -63,6 +63,8 @@ System.config({
     '@dynatrace/ngx-groundhog/theming': 'dist/packages/ngx-groundhog/theming/index.js',
     '@dynatrace/ngx-groundhog/context-menu':
       'dist/packages/ngx-groundhog/context-menu/index.js',
+    '@dynatrace/ngx-groundhog/context-dialog':
+      'dist/packages/ngx-groundhog/context-dialog/index.js',
 
   },
   packages: {

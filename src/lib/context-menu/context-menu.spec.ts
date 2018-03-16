@@ -59,29 +59,7 @@ describe('GhContextMenu', () => {
           fixture.detectChanges();
           contextMenu = fixture.debugElement.query(By.css('.gh-context-menu')).nativeElement;
           openTrigger = fixture.debugElement
-            .query(By.css('.gh-context-menu-open-trigger')).nativeElement;
-        }));
-
-        it('should set the role of the overlay to dialog', fakeAsync(() => {
-          fixture.componentInstance.contextMenu.open();
-          fixture.detectChanges();
-          flush();
-          const contextMenuPanel = fixture.debugElement
-            .query(By.css('.gh-context-menu-panel')).nativeElement;
-          expect(contextMenuPanel.getAttribute('role')).toEqual('dialog');
-        }));
-
-        it('should have the dark theme class on the panel', fakeAsync(() => {
-          fixture.componentInstance.contextMenu.open();
-          fixture.detectChanges();
-          flush();
-          const contextMenuPanel = fixture.debugElement
-            .query(By.css('.gh-context-menu-panel')).nativeElement;
-          expect(contextMenuPanel.classList.contains('gh-theme-dark')).toEqual(true);
-        }));
-
-        it('should set the aria label of the context menu to the fallback', fakeAsync(() => {
-          expect(openTrigger.getAttribute('aria-label')).toEqual('Context menu');
+            .query(By.css('.gh-context-dialog-open-trigger')).nativeElement;
         }));
 
         it('should support setting a custom aria-label', fakeAsync(() => {
@@ -143,8 +121,8 @@ describe('GhContextMenu', () => {
           document.body.focus(); // ensure that focus isn't on the trigger already
           fixture.componentInstance.contextMenu.focus();
 
-          expect(document.activeElement).toBe(contextMenu,
-            'Expected context  menu element to be focused.');
+          expect(document.activeElement).toBe(contextMenu.querySelector('.gh-context-dialog')!,
+            'Expected context menu element to be focused.');
         }));
       });
 
