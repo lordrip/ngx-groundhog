@@ -5,6 +5,18 @@
   "apps": [
     {
       "root": "src"
+    },
+    {
+      "name": "playground",
+      "root": "src/playground",
+      "outDir": "dist-playground",
+      "index": "index.html",
+      "main": "main.playground.ts",
+      "polyfills": "polyfills.ts",
+      "tsconfig": "tsconfig.json",
+      "styles": [
+        "../../dist/packages/ngx-groundhog/core/theming/prebuilt/all.css"
+      ]
     }
   ]
 }
