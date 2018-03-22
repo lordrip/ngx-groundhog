@@ -8,6 +8,7 @@ import {CdkTableModule} from '@angular/cdk/table';
   ],
   exports: [
     GhTable,
+    CdkTableModule
   ],
   declarations: [
     GhTable,
