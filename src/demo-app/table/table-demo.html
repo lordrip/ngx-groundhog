@@ -1,0 +1,25 @@
+<div class="demo-table">
+  <h1>Table</h1>
+  <section>
+    <!-- <gh-table></gh-table> -->
+    <div class="example-container mat-elevation-z8">
+      <gh-table [dataSource]="listedOwners">
+        <!-- User name Definition -->
+        <ng-container cdkColumnDef="Component">
+          <cdk-header-cell *cdkHeaderCellDef class="example-header-cell"> Component </cdk-header-cell>
+          <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.Component}} </cdk-cell>
+        </ng-container>
+
+        <!-- Age Definition -->
+        <ng-container cdkColumnDef="Owner">
+          <cdk-header-cell *cdkHeaderCellDef class="example-header-cell"> Owner </cdk-header-cell>
+          <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.Owner}} </cdk-cell>
+        </ng-container>
+
+        <!-- Header and Row Declarations -->
+        <cdk-header-row *cdkHeaderRowDef="['Component', 'Owner']" class="example-header-row">hola</cdk-header-row>
+        <cdk-row *cdkRowDef="let row; columns: ['Component', 'Owner']" class="example-row">lola</cdk-row>
+      </gh-table>
+    </div>
+  </section>
+</div>

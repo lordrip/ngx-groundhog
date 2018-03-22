@@ -35,3 +35,4 @@ npm-debug.log
 testem.log
 /.chrome
 /.git
+.history/

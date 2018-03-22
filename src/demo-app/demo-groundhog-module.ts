@@ -14,6 +14,7 @@ import {
   GhThemingModule,
   GhContextMenuModule,
   GhContextDialogModule,
+  GhTableModule,
 } from '@dynatrace/ngx-groundhog';
 
 /**
@@ -35,6 +36,7 @@ import {
     GhThemingModule,
     GhContextMenuModule,
     GhContextDialogModule,
+    GhTableModule,
   ]
 })
 export class DemoGroundhogModule {}
