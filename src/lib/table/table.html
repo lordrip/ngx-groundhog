@@ -1,15 +1,17 @@
 <table>
     <thead>
         <tr>
-            <td>Column 2</td>
+            <td *ngFor="let column of columns">
+                {{ column.title }}
+            </td>
         </tr>
     </thead>
 
-
-    <!-- <tbody>
-        <tr>
-            <td>Row 1</td>
-            <td>Row 2</td>
+    <tbody>
+        <tr *ngFor="let row of dataSource; let index=index; let odd=odd; let even=even;">
+            <td *ngFor="let column of columns">
+                {{ getCell(row, column.index) }}
+            </td>
         </tr>
-    </tbody> -->
+    </tbody>
 </table>

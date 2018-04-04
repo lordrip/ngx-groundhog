@@ -10,6 +10,8 @@ import {
   AfterViewChecked,
   ViewChildren,
   QueryList,
+  AfterViewInit,
+  ContentChildren
 } from '@angular/core';
 import { GhColumn } from './column';
 
@@ -26,12 +28,11 @@ import { GhColumn } from './column';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GhTable {
-  @Input() dataSource: string[];
-  @ViewChildren(GhColumn) columns: QueryList<GhColumn>;
+  @Input() dataSource: any[];
+  @ContentChildren(GhColumn) columns: QueryList<GhColumn>;
 
-  constructor() {
-    console.log(this.dataSource);
-    console.log('Columns', this.columns);
+  getCell(row: Array<any> | object, column: string | number): string {
+    return row[column] || '';
   }
 
 }
