@@ -12,6 +12,7 @@ import {ContextMenuDemo} from '../context-menu/context-menu-demo';
 import {RadioDemo} from '../radio/radio-demo';
 import {LoadingDistractorDemo} from 'loading-distractor/loading-distractor-demo';
 import {ContextDialogDemo} from '../context-dialog/context-dialog-demo';
+import { TableDemo } from '../table/table-demo';
 
 export const DEMO_APP_ROUTES: Routes = [
   {path: '', component: DemoApp, children: [
@@ -28,6 +29,7 @@ export const DEMO_APP_ROUTES: Routes = [
     {path: 'tile', component: TileDemo},
     {path: 'context-menu', component: ContextMenuDemo},
     {path: 'context-dialog', component: ContextDialogDemo},
+    {path: 'table', component: TableDemo},
   ]}
 ];
 

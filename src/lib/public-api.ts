@@ -13,4 +13,5 @@ export * from '@dynatrace/ngx-groundhog/tile';
 export * from '@dynatrace/ngx-groundhog/theming';
 export * from '@dynatrace/ngx-groundhog/context-dialog';
 export * from '@dynatrace/ngx-groundhog/context-menu';
+export * from '@dynatrace/ngx-groundhog/table';
 

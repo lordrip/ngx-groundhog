@@ -65,6 +65,7 @@ System.config({
       'dist/packages/ngx-groundhog/context-menu/index.js',
     '@dynatrace/ngx-groundhog/context-dialog':
       'dist/packages/ngx-groundhog/context-dialog/index.js',
+    '@dynatrace/ngx-groundhog/table': 'dist/packages/ngx-groundhog/table/index.js',
 
   },
   packages: {
