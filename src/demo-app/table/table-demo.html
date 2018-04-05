@@ -16,9 +16,16 @@
         <gh-cell *ghCellDef="let row"> {{row.age}} </gh-cell>
       </ng-container>
 
+      <!-- Button Example -->
+      <ng-container ghColumnDef="component">
+        <gh-header-cell *ghHeaderCellDef>Custom Component</gh-header-cell>
+        <gh-cell *ghCellDef="let row"></gh-cell>
+      </ng-container>
+
       <!-- Header and Row Declarations -->
-      <gh-header-row *ghHeaderRowDef="['name', 'age']"></gh-header-row>
-      <gh-row *ghRowDef="let row; columns: ['name', 'age']"></gh-row>
+      <gh-header-row *ghHeaderRowDef="['name', 'age', 'component', 'name', 'name', 'name', 'name']"></gh-header-row>
+      <!-- <gh-row [ngClass]="{even: even, odd: odd}" *ghRowDef="let even=even; let odd=odd; let row; columns: ['name', 'age', 'component', 'name', 'name', 'name', 'name']"></gh-row> -->
+      <gh-row *ghRowDef="let row; columns: ['name', 'age', 'component', 'name', 'name', 'name', 'name']"></gh-row>
     </gh-table>
 
 

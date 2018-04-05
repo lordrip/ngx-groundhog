@@ -1,26 +1,39 @@
-$gh-header-row-height: 56px;
-$gh-row-height: 48px;
-$gh-row-horizontal-padding: 24px;
+@import '../core/style/variables';
+
+$gh-header-row-height: 40px;
+$gh-row-height: 40px;
+$gh-row-horizontal-padding: 12px;
 
 /**
- * Flex-based table structure
- */
+* Flex-based table structure
+*/
 gh-table {
   display: block;
+  font-family: $mainfont;
+  font-size: 14px;
+  font-weight: 300;
+  color: $gray-700;
 }
 
 gh-header-row {
   min-height: $gh-header-row-height;
+  font-size: 12px;
 }
 
 gh-row {
   min-height: $gh-row-height;
+
+  &.even {
+    background-color: $gray-100;
+  }
+  &.odd {
+    background-color: #fff;
+  }
 }
 
 gh-row, gh-header-row {
   display: flex;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
+  border: 0;
   align-items: center;
   box-sizing: border-box;
 
@@ -52,8 +65,8 @@ gh-cell, gh-header-cell {
 }
 
 /**
- * Native HTML table structure
- */
+* Native HTML table structure
+*/
 table.gh-table {
   border-spacing: 0;
 }
