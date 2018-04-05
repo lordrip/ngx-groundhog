@@ -7,8 +7,8 @@
 */
 
 import {
-  ChangeDetectionStrategy,
   Component,
+  ChangeDetectionStrategy,
   ViewEncapsulation,
   Renderer2,
   IterableDiffers,
@@ -19,7 +19,7 @@ import {
 import {CDK_TABLE_TEMPLATE, CdkTable} from '@angular/cdk/table';
 
 /**
-* Wrapper for the CdkTable with Material design styles.
+* Wrapper for the CdkTable with Groundhog design styles.
 */
 @Component({
   moduleId: module.id,
@@ -48,12 +48,17 @@ export class GhTable<T> extends CdkTable<T> {
     }
 
     renderZebraStyle() {
-      // console.log(this._rowPlaceholder.viewContainer);
-      for (let i = 0; i < this._rowPlaceholder.viewContainer.length; i++) {
-        const elem = this._rowPlaceholder.viewContainer.get(i)!;
-
-        console.log(elem);
-        // this.renderer2.addClass(elem, 'dynamicClass');
+      const viewContainer = this._rowPlaceholder.viewContainer;
+      for (let index = 0, count = viewContainer.length; index < count; index++) {
+        // const viewRef = viewContainer.get(index) as RowViewRef<T>;
+        const viewRef = viewContainer.get(index) as any;
+        viewRef.context.index = index;
+        viewRef.context.count = count;
+        viewRef.context.first = index === 0;
+        viewRef.context.last = index === count - 1;
+        viewRef.context.even = index % 2 === 0;
+        viewRef.context.odd = !viewRef.context.even;
+        console.log(viewRef);
       }
 
 
