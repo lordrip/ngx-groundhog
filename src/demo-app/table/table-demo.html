@@ -1,33 +1,29 @@
 <div class="demo-table">
   <h1>Table</h1>
+
   <section>
+      <gh-table></gh-table>
+<!--
 
-    <gh-table [dataSource]="data">
+  <h3>DataSource with attributes</h3>
+  <gh-table [dataSource]="attrData">
+    <gh-column title="Nombre" index="name"></gh-column>
+    <gh-column title="Edad" index="age"></gh-column>
+    <gh-column index="age">
+      <button gh-icon-button><gh-icon svgIcon="sensor"></gh-icon></button>
+    </gh-column>
+  </gh-table>
+-->
 
-      <!-- Name Definition -->
-      <ng-container ghColumnDef="name">
-        <gh-header-cell *ghHeaderCellDef>Name</gh-header-cell>
-        <gh-cell *ghCellDef="let row"> {{row.name}} </gh-cell>
-      </ng-container>
-
-      <!-- Age Definition -->
-      <ng-container ghColumnDef="age">
-        <gh-header-cell *ghHeaderCellDef>Age</gh-header-cell>
-        <gh-cell *ghCellDef="let row"> {{row.age}} </gh-cell>
-      </ng-container>
-
-      <!-- Button Example -->
-      <ng-container ghColumnDef="component">
-        <gh-header-cell *ghHeaderCellDef>Custom Component</gh-header-cell>
-        <gh-cell *ghCellDef="let row"></gh-cell>
-      </ng-container>
-
-      <!-- Header and Row Declarations -->
-      <gh-header-row *ghHeaderRowDef="['name', 'age', 'component', 'name', 'name', 'name', 'name']"></gh-header-row>
-      <!-- <gh-row [ngClass]="{even: even, odd: odd}" *ghRowDef="let even=even; let odd=odd; let row; columns: ['name', 'age', 'component', 'name', 'name', 'name', 'name']"></gh-row> -->
-      <gh-row *ghRowDef="let row; columns: ['name', 'age', 'component', 'name', 'name', 'name', 'name']"></gh-row>
-    </gh-table>
-
+    <!--
+      <h3>DataSource without attributes</h3>
+      <gh-table [dataSource]="indexData">
+        <gh-column title="Columna 1" index="0"></gh-column>
+        <gh-column title="Columna 2" index="1"></gh-column>
+        <gh-column title="Columna 3" index="2"></gh-column>
+        <gh-column title="Columna 2" index="1"></gh-column>
+      </gh-table>
+    -->
 
   </section>
 </div>
