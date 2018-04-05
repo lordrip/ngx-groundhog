@@ -1,21 +1,98 @@
 @import '../core/style/variables';
 
-.gh-table {
+$gh-header-row-height: 40px;
+$gh-row-height: 40px;
+$gh-row-horizontal-padding: 12px;
+
+/**
+* Flex-based table structure
+*/
+gh-table {
   display: block;
   font-family: $mainfont;
   font-size: 14px;
+  font-weight: 300;
   color: $gray-700;
-  font-weight: 300
 }
 
-.cdk-row, .cdk-header-row {
+gh-header-row {
+  min-height: $gh-header-row-height;
+  font-size: 12px;
+}
+
+gh-row {
+  min-height: $gh-row-height;
+
+  &.even {
+    background-color: $gray-100;
+  }
+  &.odd {
+    background-color: #fff;
+  }
+}
+
+gh-row, gh-header-row {
   display: flex;
-  border-bottom: 1px solid #ccc;
+  border: 0;
   align-items: center;
-  height: 32px;
-  padding: 0 8px;
+  box-sizing: border-box;
+
+  // Workaround for https://goo.gl/pFmjJD in IE 11. Adds a pseudo
+  // element that will stretch the row the correct height. See:
+  // https://connect.microsoft.com/IE/feedback/details/802625
+  &::after {
+    display: inline-block;
+    min-height: inherit;
+    content: '';
+  }
 }
 
-.cdk-cell, .cdk-header-cell {
+gh-cell:first-child, gh-header-cell:first-child {
+  padding-left: $gh-row-horizontal-padding;
+}
+
+gh-cell:last-child, gh-header-cell:last-child {
+  padding-right: $gh-row-horizontal-padding;
+}
+
+gh-cell, gh-header-cell {
   flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  word-wrap: break-word;
+  min-height: inherit;
+}
+
+/**
+* Native HTML table structure
+*/
+table.gh-table {
+  border-spacing: 0;
+}
+
+tr.gh-header-row {
+  height: $gh-header-row-height;
+}
+
+tr.gh-row {
+  height: $gh-row-height;
+}
+
+th.gh-header-cell {
+  text-align: left;
+}
+
+th.gh-header-cell, td.gh-cell {
+  padding: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+th.gh-header-cell:first-child, td.gh-cell:first-child {
+  padding-left: $gh-row-horizontal-padding;
+}
+
+th.gh-header-cell:last-child, td.gh-cell:last-child {
+  padding-right: $gh-row-horizontal-padding;
 }

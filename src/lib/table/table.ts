@@ -1,15 +1,21 @@
+/**
+* @license
+* Copyright Google LLC All Rights Reserved.
+*
+* Use of this source code is governed by an MIT-style license that can be
+* found in the LICENSE file at https://angular.io/license
+*/
+
 import {
+  ChangeDetectionStrategy,
   Component,
   ViewEncapsulation,
-  ChangeDetectionStrategy,
-  Input,
-  QueryList,
-  ContentChildren,
-  AfterViewInit
+  Renderer2,
+  IterableDiffers,
+  ChangeDetectorRef,
+  ElementRef,
+  Attribute
 } from '@angular/core';
-import { GhColumn } from './column';
-
-import {Renderer2, IterableDiffers, ChangeDetectorRef, ElementRef, Attribute} from '@angular/core';
 import {CDK_TABLE_TEMPLATE, CdkTable} from '@angular/cdk/table';
 
 /**
@@ -27,27 +33,29 @@ import {CDK_TABLE_TEMPLATE, CdkTable} from '@angular/cdk/table';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GhTable implements AfterViewInit {
-  dataSource: any[];
-  // @Input() dataSource: any[];
-  @ContentChildren(GhColumn) columns: QueryList<GhColumn>;
+export class GhTable<T> extends CdkTable<T> {
+  constructor(_differs: IterableDiffers,
+    _changeDetectorRef: ChangeDetectorRef,
+    _elementRef: ElementRef,
+    @Attribute('role') role: string,
+    private renderer2: Renderer2) {
+      super(_differs, _changeDetectorRef, _elementRef, role);
+    }
 
-  constructor() {
-    this.dataSource = [
-      { name: 'string 1', age: 1},
-      { name: 'string 2', age: 2},
-      { name: 'string 3', age: 3},
-      { name: 'string 4', age: 4},
-    ];
+    renderRows() {
+      super.renderRows();
+      this.renderZebraStyle();
+    }
+
+    renderZebraStyle() {
+      // console.log(this._rowPlaceholder.viewContainer);
+      for (let i = 0; i < this._rowPlaceholder.viewContainer.length; i++) {
+        const elem = this._rowPlaceholder.viewContainer.get(i)!;
+
+        console.log(elem);
+        // this.renderer2.addClass(elem, 'dynamicClass');
+      }
+
+
+    }
   }
-
-  getCell(row: Array<any> | object, column: string | number): string {
-    return row[column] || '';
-  }
-
-  ngAfterViewInit() {
-    console.log('Columns', this.columns);
-  }
-
-
-}

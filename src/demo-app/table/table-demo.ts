@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {GhIconRegistry} from '@dynatrace/ngx-groundhog';
-import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   moduleId: module.id,
@@ -9,28 +7,14 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['table-demo.css'],
 })
 export class TableDemo {
-  attrData: object[];
-  indexData: Array<Array<string|number|boolean>>;
+  data: object[];
 
-  constructor(iconRegistry: GhIconRegistry, sanitizer: DomSanitizer) {
-    iconRegistry
-    .addSvgIcon('sensor',
-      sanitizer.bypassSecurityTrustResourceUrl('/assets/sensor.svg'));
-
-    this.attrData = [
+  constructor() {
+    this.data = [
       { name: 'string 1', age: 1},
       { name: 'string 2', age: 2},
       { name: 'string 3', age: 3},
       { name: 'string 4', age: 4},
-    ];
-
-    this.indexData = [
-      ['Value 1', 'Value 2', 'Value 3'],
-      ['Value 1', 'Value 2', 'Value 3'],
-      ['Value 1', 'Value 2', 'Value 3'],
-      ['Value 1', 'Value 2', 'Value 3'],
-      ['Value 1', 'Value 2', 'Value 3'],
-      ['Value 1', 'Value 2', 'Value 3'],
     ];
   }
 }
