@@ -1,8 +1,10 @@
-import { Directive, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
-import { SimpleChange } from '@angular/core/src/change_detection/change_detection_util';
+import { Directive, OnInit, OnChanges, Input, SimpleChanges, Component } from '@angular/core';
 
-@Directive({
+@Component({
     selector: 'gh-column',
+    template: `
+        <ng-content></ng-content>
+    `
 })
 export class GhColumn {
     @Input() index: string | number;

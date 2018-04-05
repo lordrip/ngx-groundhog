@@ -1,17 +1,23 @@
-<table>
-    <thead>
-        <tr>
-            <td *ngFor="let column of columns">
-                {{ column.title }}
-            </td>
-        </tr>
-    </thead>
+<cdk-table [dataSource]="dataSource">
+    <!-- Age Definition -->
+    <ng-container cdkColumnDef="age">
+        <cdk-header-cell *cdkHeaderCellDef> Age </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row"> {{row.age}} </cdk-cell>
+    </ng-container>
 
-    <tbody>
-        <tr *ngFor="let row of dataSource; let index=index; let odd=odd; let even=even;">
-            <td *ngFor="let column of columns">
-                {{ getCell(row, column.index) }}
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <!-- Name Definition -->
+    <ng-container cdkColumnDef="name">
+        <cdk-header-cell *cdkHeaderCellDef> Name </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row"> {{row.name}} </cdk-cell>
+    </ng-container>
+
+    <!-- Button Definition -->
+    <ng-container cdkColumnDef="button">
+        <cdk-header-cell *cdkHeaderCellDef> Action </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row"> <button>test</button> </cdk-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <cdk-header-row *cdkHeaderRowDef="['age', 'name', 'button']"></cdk-header-row>
+    <cdk-row *cdkRowDef="let row; columns: ['age', 'name', 'button']"></cdk-row>
+</cdk-table>

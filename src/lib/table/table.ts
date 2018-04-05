@@ -1,17 +1,11 @@
 import {
-  Directive,
   Component,
   ViewEncapsulation,
   ChangeDetectionStrategy,
-  OnInit,
   Input,
-  ViewContainerRef,
-  ViewChild,
-  AfterViewChecked,
-  ViewChildren,
   QueryList,
-  AfterViewInit,
-  ContentChildren
+  ContentChildren,
+  AfterViewInit
 } from '@angular/core';
 import { GhColumn } from './column';
 
@@ -27,12 +21,27 @@ import { GhColumn } from './column';
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GhTable {
-  @Input() dataSource: any[];
+export class GhTable implements AfterViewInit {
+  dataSource: any[];
+  // @Input() dataSource: any[];
   @ContentChildren(GhColumn) columns: QueryList<GhColumn>;
+
+  constructor() {
+    this.dataSource = [
+      { name: 'string 1', age: 1},
+      { name: 'string 2', age: 2},
+      { name: 'string 3', age: 3},
+      { name: 'string 4', age: 4},
+    ];
+  }
 
   getCell(row: Array<any> | object, column: string | number): string {
     return row[column] || '';
   }
+
+  ngAfterViewInit() {
+    console.log('Columns', this.columns);
+  }
+
 
 }

@@ -1,3 +1,21 @@
+@import '../core/style/variables';
+
 .gh-table {
   display: block;
+  font-family: $mainfont;
+  font-size: 14px;
+  color: $gray-700;
+  font-weight: 300
+}
+
+.cdk-row, .cdk-header-row {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+  height: 32px;
+  padding: 0 8px;
+}
+
+.cdk-cell, .cdk-header-cell {
+  flex: 1;
 }

@@ -17,7 +17,7 @@ import {ContextMenuDemo} from '../context-menu/context-menu-demo';
 import {RadioDemo} from 'radio/radio-demo';
 import {LoadingDistractorDemo} from 'loading-distractor/loading-distractor-demo';
 import {ContextDialogDemo} from '../context-dialog/context-dialog-demo';
-import { TableDemo } from '../table/table-demo';
+import {TableDemo} from '../table/table-demo';
 
 @NgModule({
   imports: [
