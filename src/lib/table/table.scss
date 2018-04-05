@@ -1,3 +1,85 @@
-.gh-table {
+$gh-header-row-height: 56px;
+$gh-row-height: 48px;
+$gh-row-horizontal-padding: 24px;
+
+/**
+ * Flex-based table structure
+ */
+gh-table {
   display: block;
+}
+
+gh-header-row {
+  min-height: $gh-header-row-height;
+}
+
+gh-row {
+  min-height: $gh-row-height;
+}
+
+gh-row, gh-header-row {
+  display: flex;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  align-items: center;
+  box-sizing: border-box;
+
+  // Workaround for https://goo.gl/pFmjJD in IE 11. Adds a pseudo
+  // element that will stretch the row the correct height. See:
+  // https://connect.microsoft.com/IE/feedback/details/802625
+  &::after {
+    display: inline-block;
+    min-height: inherit;
+    content: '';
+  }
+}
+
+gh-cell:first-child, gh-header-cell:first-child {
+  padding-left: $gh-row-horizontal-padding;
+}
+
+gh-cell:last-child, gh-header-cell:last-child {
+  padding-right: $gh-row-horizontal-padding;
+}
+
+gh-cell, gh-header-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  word-wrap: break-word;
+  min-height: inherit;
+}
+
+/**
+ * Native HTML table structure
+ */
+table.gh-table {
+  border-spacing: 0;
+}
+
+tr.gh-header-row {
+  height: $gh-header-row-height;
+}
+
+tr.gh-row {
+  height: $gh-row-height;
+}
+
+th.gh-header-cell {
+  text-align: left;
+}
+
+th.gh-header-cell, td.gh-cell {
+  padding: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+th.gh-header-cell:first-child, td.gh-cell:first-child {
+  padding-left: $gh-row-horizontal-padding;
+}
+
+th.gh-header-cell:last-child, td.gh-cell:last-child {
+  padding-right: $gh-row-horizontal-padding;
 }

@@ -3,8 +3,22 @@
   <section>
 
     <gh-table [dataSource]="data">
-      <gh-column title="Titulo 1"></gh-column>
-      <gh-column [title]="'Titulo 2'"></gh-column>
+
+      <!-- Name Definition -->
+      <ng-container ghColumnDef="name">
+        <gh-header-cell *ghHeaderCellDef>Name</gh-header-cell>
+        <gh-cell *ghCellDef="let row"> {{row.name}} </gh-cell>
+      </ng-container>
+
+      <!-- Age Definition -->
+      <ng-container ghColumnDef="age">
+        <gh-header-cell *ghHeaderCellDef>Age</gh-header-cell>
+        <gh-cell *ghCellDef="let row"> {{row.age}} </gh-cell>
+      </ng-container>
+
+      <!-- Header and Row Declarations -->
+      <gh-header-row *ghHeaderRowDef="['name', 'age']"></gh-header-row>
+      <gh-row *ghRowDef="let row; columns: ['name', 'age']"></gh-row>
     </gh-table>
 
 
