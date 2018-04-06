@@ -1,11 +1,11 @@
 <div class="demo-table">
   <h1>Table</h1>
 
-  <h2>Table</h2>
+  <h2>Table with static Data</h2>
   <div class="info-container">
     <!-- Datasource -->
     <section>
-      <h3>Datasource</h3>
+      <h3>Datasource - object[]</h3>
       <blockquote>
         <pre [innerHtml]="dataObjDisp">
         </pre>
@@ -38,7 +38,7 @@
   <div class="info-container">
     <!-- Datasource -->
     <section>
-      <h3>Datasource</h3>
+      <h3>Datasource - []</h3>
       <blockquote>
         <pre [innerHtml]="dataArrDisp">
         </pre>
@@ -64,6 +64,51 @@
         <!-- Header and Row Declarations -->
         <gh-header-row *ghHeaderRowDef="['name', 'age']"></gh-header-row>
         <gh-row *ghRowDef="let row; columns: ['name', 'age']"></gh-row>
+      </gh-table>
+    </section>
+  </div>
+
+  <div class="info-container">
+    <!-- Datasource -->
+    <section>
+      <h3>Datasource - Observable</h3>
+      <blockquote>
+        <pre [innerHtml]="dataLiveDisp">
+        </pre>
+      </blockquote>
+    </section>
+
+    <!-- Resulting Table -->
+    <section>
+      <h3>Table</h3>
+      <gh-table class="fixed-height" [dataSource]="dataLive">
+        <!-- User ID Definition -->
+        <ng-container ghColumnDef="userId">
+          <gh-header-cell *ghHeaderCellDef>User ID</gh-header-cell>
+          <gh-cell *ghCellDef="let row"> {{row.userId}} </gh-cell>
+        </ng-container>
+
+        <!-- ID Definition -->
+        <ng-container ghColumnDef="id">
+          <gh-header-cell *ghHeaderCellDef>ID</gh-header-cell>
+          <gh-cell *ghCellDef="let row"> {{row.id}} </gh-cell>
+        </ng-container>
+
+        <!-- Title Definition -->
+        <ng-container ghColumnDef="title">
+          <gh-header-cell *ghHeaderCellDef>Title</gh-header-cell>
+          <gh-cell *ghCellDef="let row"> {{row.title}} </gh-cell>
+        </ng-container>
+
+        <!-- Body Definition -->
+        <ng-container ghColumnDef="body">
+          <gh-header-cell *ghHeaderCellDef>Body</gh-header-cell>
+          <gh-cell *ghCellDef="let row"> {{row.body}} </gh-cell>
+        </ng-container>
+
+        <!-- Header and Row Declarations -->
+        <gh-header-row *ghHeaderRowDef="['userId', 'id', 'title', 'body']"></gh-header-row>
+        <gh-row *ghRowDef="let row; columns: ['userId', 'id', 'title', 'body']"></gh-row>
       </gh-table>
     </section>
   </div>
