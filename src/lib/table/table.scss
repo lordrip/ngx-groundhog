@@ -23,11 +23,11 @@ gh-header-row {
 gh-row {
   min-height: $gh-row-height;
 
-  &.even {
-    background-color: $gray-100;
-  }
-  &.odd {
+  &:nth-child(odd) {
     background-color: #fff;
+  }
+  &:nth-child(even) {
+    background-color: $gray-100;
   }
 }
 
