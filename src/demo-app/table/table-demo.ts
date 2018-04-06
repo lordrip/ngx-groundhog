@@ -23,7 +23,7 @@ export class TableDemo {
   dataArr: object[];
   dataArrDisp: string;
   dataLive: Observable<PostType[]>;
-  dataLiveDisp = `http.get<PostType[]>('https://jsonplaceholder.typicode.com/posts')`;
+  dataLiveDisp = `[dataSource] = http.get<PostType[]>('https://jsonplaceholder.typicode.com/posts')`;
 
   constructor(private http: HttpClient) {
     this.dataObj = [
@@ -32,7 +32,7 @@ export class TableDemo {
       { name: 'string 3', age: 3},
       { name: 'string 4', age: 4},
     ];
-    this.dataObjDisp = this.stringify(JSON.stringify(this.dataObj));
+    this.dataObjDisp = '[dataSource] = ' + this.stringify(JSON.stringify(this.dataObj));
 
     this.dataArr = [
       ['string 1', 1],
@@ -40,7 +40,7 @@ export class TableDemo {
       ['string 3', 3],
       ['string 4', 4],
     ];
-    this.dataArrDisp = this.stringify(JSON.stringify(this.dataArr));
+    this.dataArrDisp = '[dataSource] = ' + this.stringify(JSON.stringify(this.dataArr));
 
     this.dataLive = this.http.get<PostType[]>('https://jsonplaceholder.typicode.com/posts');
   }
